@@ -3,7 +3,8 @@ CREATE TABLE tb_user (
     user_email VARCHAR(200) NOT NULL,
     user_pass VARCHAR(300) NOT NULL,
     user_name VARCHAR(250) NOT NULL,
-    user_address VARCHAR(200) NOT NULL
+    user_address VARCHAR(200) NOT NULL,
+    user_phone VARCHAR(20) NOT NULL,
 )
 
 CREATE TABLE tb_role (
