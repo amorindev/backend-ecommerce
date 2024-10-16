@@ -23,7 +23,7 @@ public class UserController {
         try {
             
             if(!userService.registerUserDto(userModel)){
-                String msg = "E usuarioya existe" + userModel.getUserEmail();
+                String msg = "El usuario con el correo: " + userModel.getUserEmail() + "ya existe";
                 return ResponseEntity.badRequest().body(new ResponseMessage(msg));    
             }
             return ResponseEntity.ok().build();
@@ -34,7 +34,7 @@ public class UserController {
     }
     
     @PostMapping("/login")
-    public ResponseEntity<UserResponse> login(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<?> login(@RequestBody UserRequest userRequest) {
         Optional<UserModel> user = userService.loginUserDto(userRequest.getUserEmail(),userRequest.getUserPassword());
 
         if(user.isPresent()) {
@@ -48,7 +48,8 @@ public class UserController {
             return ResponseEntity.ok(userResponse);
 
         } else {
-            return ResponseEntity.badRequest().body(null);
+            String msg = "Credenciales inválidas";
+            return ResponseEntity.badRequest().body(new ResponseMessage(msg));
         }
     }
     
