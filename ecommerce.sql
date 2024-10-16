@@ -13,6 +13,22 @@ CREATE TABLE tb_role (
     user_id INTEGER REFERENCES tb_user(user_id)
 )
 
+CREATE TABLE tb_user (
+    user_id SERIAL PRIMARY KEY,
+    user_email VARCHAR(200) NOT NULL,
+    user_pass VARCHAR(300) NOT NULL,
+    user_name VARCHAR(250) NOT NULL,
+    user_address VARCHAR(200) NOT NULL
+)
+
+CREATE TABLE tb_role (
+    role_id SERIAL PRIMARY KEY,
+    role_name VARCHAR(200) NOT NULL, -- usuario, administrador
+    user_id INTEGER REFERENCES tb_user(user_id)
+)
+
+
+
 -- 
 CREATE TABLE tb_oauth(
     oauth_id SERIAL PRIMARY KEY,
