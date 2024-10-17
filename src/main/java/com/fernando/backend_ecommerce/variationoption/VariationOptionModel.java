@@ -27,7 +27,7 @@ public class VariationOptionModel {
     private String value;
 
     @ManyToOne
-    @JoinColumn(name = "variationsOptions")
+    @JoinColumn(name = "var_id")
     private VariationModel variation;
 
     @ManyToMany(mappedBy = "variationsOptions")
