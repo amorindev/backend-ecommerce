@@ -34,12 +34,12 @@ public class UserController {
     }
     
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody UserRequest userRequest) {
+    public ResponseEntity<?> login(@RequestBody UserRequestModel userRequest) {
         Optional<UserModel> user = userService.loginUserDto(userRequest.getUserEmail(),userRequest.getUserPassword());
 
         if(user.isPresent()) {
             UserModel userModel = user.get();
-            UserResponse userResponse = new UserResponse(
+            UserResponseModel userResponse = new UserResponseModel(
                 userModel.getUserId(), 
                 userModel.getUserName(),
                  userModel.getUserEmail(),userModel.getUserAddress(),

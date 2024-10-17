@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fernando.backend_ecommerce.role.RoleModel;
 
-public class UserResponse {
+public class UserResponseModel {
     private Long userId;
     private String userName;
     private String userEmail;
@@ -13,7 +13,7 @@ public class UserResponse {
     private List<RoleModel> roles;
 
 
-    public UserResponse(Long userId, String userName, String userEmail, String userAddress, String userPhone, List<RoleModel> roles) {
+    public UserResponseModel(Long userId, String userName, String userEmail, String userAddress, String userPhone, List<RoleModel> roles) {
         this.userId = userId;
         this.userName = userName;
         this.userEmail = userEmail;

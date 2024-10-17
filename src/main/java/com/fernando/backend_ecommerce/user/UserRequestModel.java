@@ -1,13 +1,13 @@
 package com.fernando.backend_ecommerce.user;
 
-public class UserRequest {
+public class UserRequestModel {
     private String userEmail;
     private String userPassword;
     
-    public UserRequest() {
+    public UserRequestModel() {
     }
 
-    public UserRequest(String userEmail, String userPassword) {
+    public UserRequestModel(String userEmail, String userPassword) {
         this.userEmail = userEmail;
         this.userPassword = userPassword;
     }
