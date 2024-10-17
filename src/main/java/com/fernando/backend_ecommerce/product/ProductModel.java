@@ -47,7 +47,7 @@ public class ProductModel {
     private String sku;
 
     @ManyToOne
-    @JoinColumn(name = "products")
+    @JoinColumn(name = "product_group_id")
     private ProductGroupModel productGroup;
 
     @ManyToMany
@@ -138,5 +138,6 @@ public class ProductModel {
         this.variationsOptions = variationsOptions;
     }
 
+    
     
 }
