@@ -33,7 +33,7 @@ public class ProductGroupModel {
     private String image;
 
     @ManyToOne
-    @JoinColumn(name = "productGroups")
+    @JoinColumn(name = "cat_id")
     private CategoryModel category;
 
     @OneToMany(mappedBy = "productGroup")

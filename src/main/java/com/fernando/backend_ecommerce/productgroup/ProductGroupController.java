@@ -3,7 +3,7 @@ package com.fernando.backend_ecommerce.productgroup;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +18,7 @@ public class ProductGroupController {
     @Autowired
     private ProductGroupService productGroupService;
     @GetMapping()
-    public ArrayList<ProductGroupModel> getProductGroups() {
+    public List<ProductGroupResponse> getProductGroups() {
         return this.productGroupService.getProductGroupsDto();
     }
     
