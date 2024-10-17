@@ -1,8 +1,8 @@
-package com.fernando.backend_ecommerce.category;
+package com.fernando.backend_ecommerce.variation;
 
 import java.util.List;
 
-import com.fernando.backend_ecommerce.productgroup.ProductGroupModel;
+import com.fernando.backend_ecommerce.variationoption.VariationOptionModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,18 +13,18 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "tb_category")
-public class CategoryModel {
+@Table(name = "tb_variation")
+public class VariationModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "cat_id")
+    @Column(name = "var_id")
     private Long id;
-    
-    @Column(name = "cat_name", nullable = false, length = 150)
+
+    @Column(name = "var_name", nullable = false,length = 90)
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<ProductGroupModel> productGroups;
+    @OneToMany(mappedBy = "variation")
+    private List<VariationOptionModel> variationsOptions;
 
     public Long getId() {
         return id;
@@ -42,13 +42,13 @@ public class CategoryModel {
         this.name = name;
     }
 
-    public List<ProductGroupModel> getProductGroups() {
-        return productGroups;
+    public List<VariationOptionModel> getVariationsOptions() {
+        return variationsOptions;
     }
 
-    public void setProductGroups(List<ProductGroupModel> productGroups) {
-        this.productGroups = productGroups;
+    public void setVariationsOptions(List<VariationOptionModel> variationsOptions) {
+        this.variationsOptions = variationsOptions;
     }
-    
+
     
 }
