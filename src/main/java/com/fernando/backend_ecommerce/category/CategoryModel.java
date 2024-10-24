@@ -2,6 +2,7 @@ package com.fernando.backend_ecommerce.category;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fernando.backend_ecommerce.productgroup.ProductGroupModel;
 
 import jakarta.persistence.Column;
@@ -23,6 +24,7 @@ public class CategoryModel {
     @Column(name = "cat_name", nullable = false, length = 150)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<ProductGroupModel> productGroups;
 

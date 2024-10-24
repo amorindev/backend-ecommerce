@@ -30,7 +30,7 @@ public class UserService {
         
         //Asignar un role a un usuario
         List<RoleModel> roles = new ArrayList<>();
-        Optional<RoleModel> role =roleRepository.findByRoleName("CLIENTE");
+        Optional<RoleModel> role =roleRepository.findByRoleName("CLIENT");
         if (role.isPresent()) {
             roles.add(role.get());            
         }
