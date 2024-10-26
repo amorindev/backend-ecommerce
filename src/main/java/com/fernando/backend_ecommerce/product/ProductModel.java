@@ -3,8 +3,11 @@ package com.fernando.backend_ecommerce.product;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fernando.backend_ecommerce.productgroup.ProductGroupModel;
-import com.fernando.backend_ecommerce.variationoption.VariationOptionModel;
+import com.fernando.backend_ecommerce.productvariationoption.ProductVariationOptionModel;
+import com.fernando.backend_ecommerce.saleproduct.SaleProductModel;
+import com.fernando.backend_ecommerce.userproduct.UserProductModel;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,9 +15,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -50,13 +52,20 @@ public class ProductModel {
     @JoinColumn(name = "product_group_id")
     private ProductGroupModel productGroup;
 
-    @ManyToMany
-    @JoinTable(
-        name = "product_variationoption",
-        joinColumns = @JoinColumn(name = "prod_id"),
-        inverseJoinColumns = @JoinColumn(name = "varop_id")
-    )
-    private List<VariationOptionModel> variationsOptions;
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<ProductVariationOptionModel> productVariationOptionModels;
+
+     
+    @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<UserProductModel> userProducts;
+
+     @JsonIgnore
+    @OneToMany(mappedBy = "product")
+    private List<SaleProductModel> saleProducts;
+
+   
 
     public Long getId() {
         return id;
@@ -129,13 +138,55 @@ public class ProductModel {
     public void setProductGroup(ProductGroupModel productGroup) {
         this.productGroup = productGroup;
     }
-
+/* 
     public List<VariationOptionModel> getVariationsOptions() {
         return variationsOptions;
     }
 
     public void setVariationsOptions(List<VariationOptionModel> variationsOptions) {
         this.variationsOptions = variationsOptions;
+    } */
+
+    public List<UserProductModel> getUserProducts() {
+        return userProducts;
+    }
+
+    public void setUserProducts(List<UserProductModel> userProducts) {
+        this.userProducts = userProducts;
+    }
+
+    public List<SaleProductModel> getSaleProducts() {
+        return saleProducts;
+    }
+
+    public void setSaleProducts(List<SaleProductModel> saleProducts) {
+        this.saleProducts = saleProducts;
+    }
+
+    public ProductModel(double price, int stock, short discount, short rating, String image, Timestamp createdAt,
+            String sku, ProductGroupModel productGroup) {
+        this.price = price;
+        this.stock = stock;
+        this.discount = discount;
+        this.rating = rating;
+        this.image = image;
+        this.createdAt = createdAt;
+        this.sku = sku;
+        this.productGroup = productGroup;
+    }
+    public ProductModel(double price, int stock, short discount, short rating, String image, String sku, ProductGroupModel productGroup) {
+        this(price, stock, discount, rating, image, new Timestamp(System.currentTimeMillis()), sku, productGroup);
+    }
+
+    public List<ProductVariationOptionModel> getProductVariationOptionModels() {
+        return productVariationOptionModels;
+    }
+
+    public void setProductVariationOptionModels(List<ProductVariationOptionModel> productVariationOptionModels) {
+        this.productVariationOptionModels = productVariationOptionModels;
+    }
+
+    public ProductModel() {
     }
 
     

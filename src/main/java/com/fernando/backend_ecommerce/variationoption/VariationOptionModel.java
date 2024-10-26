@@ -2,7 +2,8 @@ package com.fernando.backend_ecommerce.variationoption;
 
 import java.util.List;
 
-import com.fernando.backend_ecommerce.product.ProductModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fernando.backend_ecommerce.productvariationoption.ProductVariationOptionModel;
 import com.fernando.backend_ecommerce.variation.VariationModel;
 
 import jakarta.persistence.Column;
@@ -11,8 +12,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,8 +31,10 @@ public class VariationOptionModel {
     @JoinColumn(name = "var_id")
     private VariationModel variation;
 
-    @ManyToMany(mappedBy = "variationsOptions")
-    private List<ProductModel> products;
+    @JsonIgnore
+    @OneToMany(mappedBy = "variationOption")
+    private List<ProductVariationOptionModel> productVariationOptionModels;
+
 
     public Long getId() {
         return id;
@@ -57,13 +60,21 @@ public class VariationOptionModel {
         this.variation = variation;
     }
 
-    public List<ProductModel> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<ProductModel> products) {
-        this.products = products;
-    }
-
     
+
+    public VariationOptionModel(String value, VariationModel variation) {
+        this.value = value;
+        this.variation = variation;
+    }
+
+    public List<ProductVariationOptionModel> getProductVariationOptionModels() {
+        return productVariationOptionModels;
+    }
+
+    public void setProductVariationOptionModels(List<ProductVariationOptionModel> productVariationOptionModels) {
+        this.productVariationOptionModels = productVariationOptionModels;
+    }
+
+    public VariationOptionModel() {
+    }
 }
