@@ -50,5 +50,12 @@ public class VariationModel {
         this.variationsOptions = variationsOptions;
     }
 
+    public VariationModel(String name) {
+        this.name = name;
+    }
+
+    public VariationModel() {
+    }
+
     
 }
