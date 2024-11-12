@@ -69,9 +69,6 @@ INSERT INTO product_variationoption (prod_id, varop_id) VALUES
 (9, 5);  
 
 
-
-
-
 -- Insertar datos en la tabla tb_product_group
 INSERT INTO tb_product_group (pg_name, pg_desc, pg_image, cat_id) VALUES 
 ('Smartphones', 'Zapatillas deportivas', 'smartphones.jpg', 1),
