@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fernando.backend_ecommerce.saleproduct.SaleProductModel;
 import com.fernando.backend_ecommerce.user.UserModel;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
@@ -45,8 +47,13 @@ public class SaleModel {
     private UserModel user;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "sale")
+    @OneToMany(mappedBy = "sale", cascade = CascadeType.ALL)
     private List<SaleProductModel> saleProducts;
+
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = new Timestamp(System.currentTimeMillis());
+    }
 
     public Long getId() {
         return id;
@@ -84,9 +91,11 @@ public class SaleModel {
         return createdAt;
     }
 
+    
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
+   
 
     public UserModel getUser() {
         return user;

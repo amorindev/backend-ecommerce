@@ -10,10 +10,8 @@ public class SaleResponse {
     private String address;
     private String paymentId;
     private Timestamp createdAt;
-    private Long userId;
     private List<SaleProductResponse> saleProducts;
 
-    
 
     public Long getId() {
         return id;
@@ -44,13 +42,7 @@ public class SaleResponse {
     }
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
-    }
-    public Long getUserId() {
-        return userId;
-    }
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+    } 
     public List<SaleProductResponse> getSaleProducts() {
         return saleProducts;
     }
@@ -62,6 +54,7 @@ public class SaleResponse {
         private Double price;
         private Integer quantity;
         private ProductSummary product;
+
         public Long getId() {
             return id;
         }
@@ -94,6 +87,13 @@ public class SaleResponse {
         private String sku;
         private String image;
         private double price;
+        private Integer quantity;
+        public Integer getQuantity() {
+            return quantity;
+        }
+        public void setQuantity(Integer quantity) {
+            this.quantity = quantity;
+        }
         private short discount;
         private short rating;
         public Long getId() {

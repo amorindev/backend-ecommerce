@@ -14,7 +14,6 @@ public class SaleRequest {
     public BigDecimal getTotal() {
         return total;
     }
-
     public void setTotal(BigDecimal total) {
         this.total = total;
     }
@@ -34,35 +33,27 @@ public class SaleRequest {
         this.paymentId = paymentId;
     }
 
-
     public Long getUserId() {
         return userId;
     }
-
-
 
     public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-
-
     public List<SaleProductRequest> getSaleProducts() {
         return saleProducts;
     }
-
-
 
     public void setSaleProducts(List<SaleProductRequest> saleProducts) {
         this.saleProducts = saleProducts;
     }
 
-
-
     public static class SaleProductRequest {
         private Long productId;
         private Integer quantity;
         private Double price;
+
         public Long getProductId() {
             return productId;
         }
@@ -81,7 +72,6 @@ public class SaleRequest {
         public void setPrice(Double price) {
             this.price = price;
         }
-
         
     }
 }

@@ -9,6 +9,7 @@ import com.fernando.backend_ecommerce.productvariationoption.ProductVariationOpt
 import com.fernando.backend_ecommerce.saleproduct.SaleProductModel;
 import com.fernando.backend_ecommerce.userproduct.UserProductModel;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -62,7 +63,7 @@ public class ProductModel {
     private List<UserProductModel> userProducts;
 
      @JsonIgnore
-    @OneToMany(mappedBy = "product")
+     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<SaleProductModel> saleProducts;
 
    

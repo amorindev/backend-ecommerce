@@ -115,6 +115,8 @@ public class DataInizializer implements CommandLineRunner {
         }
     }
 
+    
+
     private void initializeSQL() {
         //crear la categoria
         List<String> categoryNames = List.of("Hombre", "Mujer", "Niños", "Sports Equipment");
@@ -136,36 +138,50 @@ public class DataInizializer implements CommandLineRunner {
         productGroupRepository.save(productGroupModel);
 
         List<ProductModel> products = List.of(
+
+        // Mostaza 39
     new ProductModel(400.0, 50, (short) 10, (short) 5, 
-        "https://drive.google.com/file/d/1wdmZvdhVZtEBX75UCm-19etqdYy--47D/view?usp=drive_link", 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/mostaza39.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123401", productGroupModel),
-    new ProductModel(380.99, 30, (short) 5, (short) 4, 
-        "https://drive.google.com/file/d/1Q6jae3ZyyLaNTQUgVftkNayiG54Tkz5c/view?usp=drive_link", 
+    
+        //Moztaza 42
+        new ProductModel(380.99, 30, (short) 5, (short) 4, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/mostaza42.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123402", productGroupModel),
     new ProductModel(370.99, 200, (short) 0, (short) 3, 
-        "https://drive.google.com/file/d/16gP1fitwra38UaoG_LYHXMSuCpcoGW6y/view?usp=drive_link", 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/moztaza28.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123403", productGroupModel),
-    new ProductModel(400.99, 10, (short) 0, (short) 4, 
-        "https://drive.google.com/file/d/1qsQwxco_iMDZLmocb2RQHEflWQeMxwqb/view?usp=drive_link", 
+    
+    // negro 28
+        new ProductModel(400.99, 10, (short) 0, (short) 4, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/negro28.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123404", productGroupModel),
-    new ProductModel(370.99, 50, (short) 0, (short) 4, 
-        "https://drive.google.com/file/d/1xRWDg-AfOuA1EtOV-WowMyXx43058DuO/view?usp=drive_link", 
+    
+        //negro 39
+        new ProductModel(370.99, 50, (short) 0, (short) 4, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/negro39.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123405", productGroupModel),
-    new ProductModel(380.0, 10, (short) 30, (short) 5, 
-        "https://drive.google.com/file/d/1vrWI4N8tnlLrSHCV_BQrQ89BEFegHwWW/view?usp=drive_link", 
+        
+        // negro 42
+        new ProductModel(380.0, 10, (short) 30, (short) 5, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/negro42.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123406", productGroupModel),
-    new ProductModel(370.99, 28, (short) 10, (short) 4, 
-        "https://drive.google.com/file/d/14nO2d39p4sEtM_BL5s_V7yValPEP0K4a/view?usp=drive_link", 
+    
+    //white 28 
+        new ProductModel(370.99, 28, (short) 10, (short) 4, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/white28.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123407", productGroupModel),
-    new ProductModel(400.0, 50, (short) 0, (short) 4, 
-        "https://drive.google.com/file/d/1AiICrG3LK5exCNFTv4b_P_vnwLKgFdA3/view?usp=drive_link", 
+    
+    //white 39
+        new ProductModel(400.0, 50, (short) 0, (short) 4, 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/white39.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123408", productGroupModel),
     new ProductModel(399.99, 65, (short) 0, (short) 4, 
-        "https://drive.google.com/file/d/1ulRiQlQnmhf1YWCc0NXimpoBsTZGMH-_/view?usp=drive_link", 
+        "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/white42.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123409", productGroupModel)
 );
 
-products.forEach(productRepository::save);
+    products.forEach(productRepository::save);
 
 
         // Crear variaciones

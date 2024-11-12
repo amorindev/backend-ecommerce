@@ -69,7 +69,7 @@ public class SaleService {
         response.setAddress(sale.getAddress());
         response.setPaymentId(sale.getPaymentId());
         response.setCreatedAt(sale.getCreatedAt());
-        response.setUserId(sale.getUser().getUserId());
+
         response.setSaleProducts(sale.getSaleProducts().stream().map(saleProduct -> {
             SaleResponse.SaleProductResponse saleProductResponse = new SaleResponse.SaleProductResponse();
             saleProductResponse.setId(saleProduct.getId());
