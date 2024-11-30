@@ -133,7 +133,7 @@ public class DataInizializer implements CommandLineRunner {
         ProductGroupModel productGroupModel = new ProductGroupModel();
         productGroupModel.setName("Zapatillas Adidas");
         productGroupModel.setDescription("Zapatillas negras deportivas para hombre");
-        productGroupModel.setImage("https://drive.google.com/file/d/1wdmZvdhVZtEBX75UCm-19etqdYy--47D/view?usp=drive_link");
+        productGroupModel.setImage("https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/mostaza39.PNG");
         productGroupModel.setCategory(categories.get(0)); 
         productGroupRepository.save(productGroupModel);
 
@@ -148,7 +148,8 @@ public class DataInizializer implements CommandLineRunner {
         new ProductModel(380.99, 30, (short) 5, (short) 4, 
         "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/mostaza42.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123402", productGroupModel),
-    new ProductModel(370.99, 200, (short) 0, (short) 3, 
+    
+        new ProductModel(370.99, 200, (short) 0, (short) 3, 
         "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/moztaza28.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123403", productGroupModel),
     
@@ -176,7 +177,9 @@ public class DataInizializer implements CommandLineRunner {
         new ProductModel(400.0, 50, (short) 0, (short) 4, 
         "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/white39.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123408", productGroupModel),
-    new ProductModel(399.99, 65, (short) 0, (short) 4, 
+    
+    // white 42
+        new ProductModel(399.99, 65, (short) 0, (short) 4, 
         "https://ecommerce-soweb.s3.us-east-2.amazonaws.com/products/white42.PNG", 
         new Timestamp(System.currentTimeMillis()), "SKU123409", productGroupModel)
 );
@@ -204,24 +207,26 @@ public class DataInizializer implements CommandLineRunner {
         variationOptions.forEach(variationOptionRepository::save);
 
         List<Object[]> relations = List.of(
-            new Object[]{1L, 1L},  
-            new Object[]{1L, 6L},  
-            new Object[]{2L, 1L},  
-            new Object[]{2L, 5L},  
-            new Object[]{3L, 1L},  
+            new Object[]{1L, 3L},  
+            new Object[]{1L, 5L},  
+            new Object[]{2L, 3L},  
+            new Object[]{2L, 6L},  
+            new Object[]{3L, 3L},  
             new Object[]{3L, 4L},
+
             new Object[]{4L, 2L},  
-            new Object[]{4L, 6L},  
+            new Object[]{4L, 4L},  
             new Object[]{5L, 2L},  
             new Object[]{5L, 5L},  
             new Object[]{6L, 2L},  
-            new Object[]{6L, 4L},
-            new Object[]{7L, 3L},  
+            new Object[]{6L, 6L},
+
+            new Object[]{7L, 1L},  
             new Object[]{7L, 4L},  
-            new Object[]{8L, 3L},  
-            new Object[]{8L, 2L},  
-            new Object[]{9L, 6L},  
-            new Object[]{9L, 5L}
+            new Object[]{8L, 1L},  
+            new Object[]{8L, 5L},  
+            new Object[]{9L, 1L},  
+            new Object[]{9L, 6L}
         );
 
         for (Object[] relation : relations) {

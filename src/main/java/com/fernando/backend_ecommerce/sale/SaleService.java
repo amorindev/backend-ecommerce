@@ -55,6 +55,7 @@ public class SaleService {
             return saleProduct;
         }).collect(Collectors.toList());
 
+       
 
         sale.setSaleProducts(saleProducts);
         saleRepository.save(sale);
